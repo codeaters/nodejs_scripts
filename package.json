@@ -1,0 +1,26 @@
+{
+  "name": "nodejs_scripts",
+  "version": "1.0.0",
+  "description": "NodeJS utiity scripts for firebase Admin",
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeaters/nodejs_scripts.git"
+  },
+  "keywords": [
+    "utility"
+  ],
+  "author": "madeyedexter",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/codeaters/nodejs_scripts/issues"
+  },
+  "homepage": "https://github.com/codeaters/nodejs_scripts#readme"
+}

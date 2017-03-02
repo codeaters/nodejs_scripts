@@ -3,6 +3,10 @@ logs
 *.log
 npm-debug.log*
 
+# exclude service account key for firebase admin auth
+technoweekapp-firebase-adminsdk-*
+
+
 # Runtime data
 pids
 *.pid
