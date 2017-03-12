@@ -3,6 +3,7 @@ logs
 *.log
 npm-debug.log*
 *.csv
+data_*
 
 # exclude service account key for firebase admin auth
 technoweekapp-firebase-adminsdk-*

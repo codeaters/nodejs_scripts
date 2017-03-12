@@ -5,6 +5,8 @@ var crypto = require('crypto');
 
 var users=[];
 
+var createUserPromises =[];
+
 var serviceAccount = require("./technoweekapp-firebase-adminsdk-xu1cb-5f832fc66a.json");
 
 admin.initializeApp({
@@ -24,27 +26,34 @@ lri.on('line', function (line) {
   user.email = words[1]+'.'+words[2]+'@iw.com';
   user.displayName =  words[1]+' '+words[2];
   user.password = crypto.createHash('md5').update( words[1]+words[2]+String(Date.now())).digest('hex');
-  users.push(user);
-
   /*push users to firebase auth*/
-  admin.auth().createUser({
+  createUserPromise = admin.auth().createUser({
     email: user.email,
     emailVerified: true,
     password: user.password,
     displayName: user.displayName,
     photoURL: "http://www.example.com/12345678/photo.png",
     disabled: false
-  })
-    .then(function(userRecord) {
+  });
+  createUserPromise.then(function(userRecord) {
       console.log("Successfully created new user:", userRecord.uid);
+      users.push(userRecord);
+
     })
     .catch(function(error) {
       console.log("Error creating new user:", error);
     });
 
+
 });
-/*
+
 lri.input.on('end', function(){
   console.log(users);
+  var usersJSON = JSON.stringify(users);
+  fs.writeFile("./data_created_users.json", usersJSON, function(err) {
+    if(err) {
+        return console.log(err);
+    }
+    console.log("Users wriiten to data_created_users.json");
 });
-*/
+});
