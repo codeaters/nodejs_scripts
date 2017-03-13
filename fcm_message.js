@@ -15,13 +15,11 @@ var topic = "questionTopic";
 // on how to define a message payload.
 var payload = {
   data: {
-    score: "850",
-    time: "2:45",
     notificationType: "new_question",
-    question_id: "gQuestion1",
-    question_count: "1",
+    question_id: "q2",
+    question_count: "2",
     quiz_name: "General Quiz",
-    quiz_id: "g",
+    quiz_id: "generalQuiz",
     question_statement: "Who the fuck are you?"
 
   }
