@@ -1,4 +1,3 @@
-
 var admin = require('firebase-admin');
 
 var serviceAccount = require("./technoweekapp-firebase-adminsdk-xu1cb-5f832fc66a.json");
@@ -21,7 +20,6 @@ var payload = {
     quiz_name: "General Quiz",
     quiz_id: "generalQuiz",
     question_statement: "Who the fuck are you?"
-
   }
 };
 
