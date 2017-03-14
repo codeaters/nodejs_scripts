@@ -1,25 +1,28 @@
 var admin = require('firebase-admin');
-
 var serviceAccount = require("./technoweekapp-firebase-adminsdk-xu1cb-5f832fc66a.json");
-
+var topic = "defaultTopic";
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://technoweekapp.firebaseio.com"
 });
 
-// The topic name can be optionally prefixed with "/topics/".
-var topic = "questionTopic";
+// A template to update news
+// Also sends a new_question notification
+// As an admin, the app has access to read and write all data, regardless of Security Rules
+var   leaderBoardEventName = "generalQuiz";
+var title = "Leaderboard is here.";
+var text = "Check out the leaderboard for "+leaderBoardEventName;
+var quizId = "generalQuiz";
+
 
 // See the "Defining the message payload" section below for details
 // on how to define a message payload.
 var payload = {
   data: {
-    notificationType: "new_question",
-    question_id: "q2",
-    question_count: "2",
-    quiz_name: "General Quiz",
-    quiz_id: "generalQuiz",
-    question_statement: "Who the fuck are you?"
+    notificationType: "leaderboard_update",
+    contentTitle: title,
+    contentText: text,
+    quiz_id: quizId
   }
 };
 
