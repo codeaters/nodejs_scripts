@@ -1,5 +1,5 @@
 var admin = require('firebase-admin');
-var serviceAccount = require("./technoweekapp-firebase-adminsdk-xu1cb-5f832fc66a.json");
+var serviceAccount = require("./serviceAccountKey.json");
 var topic = "defaultTopic";
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

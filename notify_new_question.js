@@ -1,5 +1,5 @@
 var admin = require('firebase-admin');
-var serviceAccount = require("./technoweekapp-firebase-adminsdk-xu1cb-5f832fc66a.json");
+var serviceAccount = require("./serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -11,8 +11,8 @@ admin.initializeApp({
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
 var quizName = "General Quiz";
-var quizId = "generalQuiz";
-var currentQuestion = "q2";
+var quizId = "thinkQuick";
+var currentQuestion = "q1";
 
 var db = admin.database();
 var ref = db.ref("currentQuestion");
@@ -31,7 +31,7 @@ ref.set({
     expired: false
   }, function(status){
     console.log(status);
-    console.log("Start and End time set in uestion tree");
+    console.log("Start and End time set in question tree");
     console.log("Sending notification to devices.");
 
     //retrieve the question statement
