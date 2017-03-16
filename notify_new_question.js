@@ -10,16 +10,14 @@ admin.initializeApp({
 // Also sends a new_question notification
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
-var quizName = "General Quiz";
-var quizId = "thinkQuick";
-var currentQuestion = "q1";
+var quizName = "Quizzer";
+var quizId = "quizzer";
+var currentQuestion = "q2";
 
 var db = admin.database();
-var ref = db.ref("currentQuestion");
+var ref = db.ref("currentQuestion/"+quizId);
 var questionRef = db.ref(quizId+"/"+currentQuestion);
-ref.set({
-  quizId : currentQuestion
-}, function(status){
+ref.set(currentQuestion, function(status){
   console.log(status);
   console.log("Current Question updated successfully");
 
