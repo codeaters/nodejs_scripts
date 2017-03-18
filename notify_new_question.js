@@ -25,8 +25,9 @@ ref.set(currentQuestion, function(status){
   var time = new Date().getTime();
   questionRef.update({
     startTime: time,
-    endTime: time + 3600000,
-    expired: false
+    endTime: time + 360000,
+    expired: false,
+    maxTime: 6
   }, function(status){
     console.log(status);
     console.log("Start and End time set in question tree");
@@ -36,7 +37,6 @@ ref.set(currentQuestion, function(status){
     questionRef.once('value', function(snapshot){
       var question = snapshot.val();
       // The topic name can be optionally prefixed with "/topics/".
-      // TODO: rename it to defaultTopic
       var topic = "defaultTopic";
 
       console.log("Question is: "+JSON.stringify(question));
