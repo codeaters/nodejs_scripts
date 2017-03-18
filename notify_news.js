@@ -12,15 +12,15 @@ admin.initializeApp({
 
 //news values
 var news = {
-  color: "#FF00FF",
-  content: "Let's launch ourselves into space",
+  color: "#FF0000",
+  content: "We are updating the app. Please uninstall the app to stop receiving offending notifications, or ignore this message if you don't mind being offended.",
   imgUrl: "https://media2.wnyc.org/i/620/372/c/80/photologue/photos/space.jpg",
   type:"notice",
   timestamp: Date.now()
 };
 //notification values
-var title = "Launch Scheduled";
-var text = "Countdown begins.";
+var title = "App update in progress";
+var text = "Please uninstall the app, we are doing some tesing with the notifications.";
 
 
 var db = admin.database();
