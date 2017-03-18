@@ -13,14 +13,14 @@ admin.initializeApp({
 //news values
 var news = {
   color: "#FF00FF",
-  content: "Let's launch ourselves into space",
+  content: "Welcome to the Innovation Week, we are glad to see you here.",
   imgUrl: "https://media2.wnyc.org/i/620/372/c/80/photologue/photos/space.jpg",
   type:"notice",
   timestamp: Date.now()
 };
 //notification values
-var title = "Launch Scheduled";
-var text = "Countdown begins.";
+var title = "Welcome!";
+var text = "Innovation week is almost here.";
 
 
 var db = admin.database();
