@@ -12,7 +12,7 @@ admin.initializeApp({
 });
 
 lri=lineReader.createInterface({
-  input: fs.createReadStream('./user_upload.csv')
+  input: fs.createReadStream('./users.csv')
 });
 
 //var userRef = admin.database().ref('users');
@@ -22,30 +22,26 @@ lri.on('line', function (line) {
   words = line.split(',');
   user = {};
   user.uid = words[0];
-  user.email = words[2]+"@iw.com";  //This is actually email
-  user.displayName = words[3];
-  user.password = generator.generate({
-      length: 6,
-      numbers: true
-  });
+  user.email = words[2]+'@iw.com';  //This is actually email
+  user.displayName = words[1];
+  user.password = words[3];
 
   map.set(user.uid, user);
-  //user.team = words[1];
-  //user.location = words[4];
-
-//write password to file
-//push userRecord to file
-fs.appendFile('userdetails_uploaded.txt', user.uid+','+user.email+','+user.displayName+','+user.password+'\r\n', function (status) {
-  console.log('Record Written: '+ status);
-});
 });
 
-var promises = [];
+var ids = ["126643",
+"205006",
+"352689",
+"759843",
+"1004431",
+];
 
 lri.input.on('end', function(){
   //start writing all users in firebase auth
-    map.forEach(function(user, key){
-              admin.auth().createUser({
+    ids.forEach(function(id,idx){
+      
+      var user = map.get(id);
+      admin.auth().createUser({
           uid: user.uid,
         email: user.email,
         emailVerified: true,
@@ -55,14 +51,14 @@ lri.input.on('end', function(){
       }).then(function(userRecord) {
       // See the UserRecord reference doc for the contents of userRecord.
       console.log("Successfully created new user in auth:", userRecord.uid);
-      map.remove(userRecord.uid);
+      ids.pop(userRecord.uid);
 
   })
     .catch(function(error) {
       console.log("Error creating new user:", error);
       fs.appendFile("Users_remaining.txt","******************Users********************\r\n",function(){});
-      map.forEach(function(user, uid){
-            fs.appendFile("Users_remaining.txt",user.uid+','+user.email+','+user.displayName+','+user.password+'\r\n', function(status){
+      ids.forEach(function(user, uid){
+            fs.appendFile("Users_remaining.txt",user+'\r\n', function(status){
 
             });
       });

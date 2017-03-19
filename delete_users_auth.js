@@ -10,7 +10,7 @@ admin.initializeApp({
 });
 
 lri=lineReader.createInterface({
-  input: fs.createReadStream('./user_upload.csv')
+  input: fs.createReadStream('./userdetails_uploaded.txt')
 });
 
 
