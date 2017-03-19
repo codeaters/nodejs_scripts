@@ -8,21 +8,16 @@ admin.initializeApp({
 });
 
 
-var email = 'danish.kamal@iw.com';
+var email = 'zeeshan.khan@iw.com';
 
 admin.auth().getUserByEmail(email)
   .then(function(userRecord) {
     // See the UserRecord reference doc for the contents of userRecord.
     console.log("Successfully fetched user data:", userRecord.toJSON());
     admin.auth().updateUser(userRecord.uid, {
-<<<<<<< HEAD
-      password: ""
-=======
+      password: "abcdef",
       emailVerified: true,
-      password: "fuckingA",
-      displayName: "Danish Kamal",
       disabled: false
->>>>>>> faffb2a4fbe843e233b4dad32501af7bdf0face9
     })
       .then(function(userRecord) {
         // See the UserRecord reference doc for the contents of userRecord.

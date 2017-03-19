@@ -9,8 +9,8 @@ data_*
 # exclude service account key for firebase admin auth
 technoweekapp-firebase-adminsdk-*
 serviceAccountKey.json
-
-
+X
+ZSX
 # Runtime data
 pids
 *.pid
