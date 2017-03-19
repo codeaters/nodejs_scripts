@@ -8,14 +8,14 @@ admin.initializeApp({
 });
 
 
-var email = 'zeeshan.khan@iw.com';
+var email = 'somnath.saha@iw.com';
 
 admin.auth().getUserByEmail(email)
   .then(function(userRecord) {
     // See the UserRecord reference doc for the contents of userRecord.
     console.log("Successfully fetched user data:", userRecord.toJSON());
     admin.auth().updateUser(userRecord.uid, {
-      password: "abcdef",
+      password: "",
       emailVerified: true,
       disabled: false
     })

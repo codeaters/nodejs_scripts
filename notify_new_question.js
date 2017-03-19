@@ -10,9 +10,9 @@ admin.initializeApp({
 // Also sends a new_question notification
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
-var quizName = "Quizzer";
-var quizId = "quizzer";
-var currentQuestion = "q4";
+var quizName = "Think Quick";
+var quizId = "thinkQuick";
+var currentQuestion = "q1";
 
 var db = admin.database();
 var ref = db.ref("currentQuestion/"+quizId);
@@ -50,7 +50,7 @@ ref.set(currentQuestion, function(status){
           question_count: currentQuestion.split('q')[1],
           quiz_name: quizName,
           quiz_id: quizId,
-          question_statement: question.statement
+          question_statement: "Click to see the Question."
         }
       };
 
