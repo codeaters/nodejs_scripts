@@ -12,11 +12,7 @@ admin.initializeApp({
 
 var quizName = "Quizzer";
 var quizId = "quizzer";
-<<<<<<< HEAD
-var currentQuestion = "q3";
-=======
-var currentQuestion = "q1";
->>>>>>> faffb2a4fbe843e233b4dad32501af7bdf0face9
+var currentQuestion = "q4";
 
 var db = admin.database();
 var ref = db.ref("currentQuestion/"+quizId);
