@@ -13,7 +13,7 @@ admin.initializeApp({
 var quizName = "Quizzer";
 var quizId = "quizzer";
 var currentQuestion = "q1";
-var ttl = 1;
+var ttl = 960; //minutes
 
 var db = admin.database();
 var ref = db.ref("currentQuestion/"+quizId);
@@ -26,7 +26,7 @@ ref.set(currentQuestion, function(status){
   var time = new Date().getTime();
   questionRef.update({
     startTime: time,
-    endTime: time + 360000,
+    endTime: time + ttl*60000,
     expired: false,
     maxTime: ttl
   }, function(status){
