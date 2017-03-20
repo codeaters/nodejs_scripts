@@ -10,9 +10,10 @@ admin.initializeApp({
 // Also sends a new_question notification
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
-var quizName = "Think Quick";
-var quizId = "thinkQuick";
+var quizName = "Quizzer";
+var quizId = "quizzer";
 var currentQuestion = "q1";
+var ttl = 1;
 
 var db = admin.database();
 var ref = db.ref("currentQuestion/"+quizId);
@@ -27,7 +28,7 @@ ref.set(currentQuestion, function(status){
     startTime: time,
     endTime: time + 360000,
     expired: false,
-    maxTime: 6
+    maxTime: ttl
   }, function(status){
     console.log(status);
     console.log("Start and End time set in question tree");
@@ -44,6 +45,10 @@ ref.set(currentQuestion, function(status){
       // See the "Defining the message payload" section below for details
       // on how to define a message payload.
       var payload = {
+        notification:{
+          time_to_live: String(ttl * 60)
+        },
+
         data: {
           notificationType: "new_question",
           question_id: currentQuestion,
