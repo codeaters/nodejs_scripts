@@ -15,11 +15,11 @@ admin.initializeApp({
 
   /*push users to firebase auth*/
   admin.auth().createUser({
-    uid: "107127",
-    email: "rajeev.arora@iw.com",
+    uid: "1291055",
+    email: "gowtham.s@iw.com",
     emailVerified: true,
-    password: "",
-    displayName: "Rajeev Arora",
+    password: "abcdef",
+    displayName: "Gowtham S",
     disabled: false
   }).then(function(userRecord) {
       console.log("Successfully created new user:", userRecord.uid);

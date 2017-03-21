@@ -12,12 +12,15 @@ admin.initializeApp({
 
 var quizName = "Quizzer";
 var quizId = "quizzer";
-var currentQuestion = "q1";
-var ttl = 960; //minutes
+var currentQuestion = "q3";
+var ttl = 60; //minutes
 
 var db = admin.database();
 var ref = db.ref("currentQuestion/"+quizId);
 var questionRef = db.ref(quizId+"/"+currentQuestion);
+
+
+
 ref.set(currentQuestion, function(status){
   console.log(status);
   console.log("Current Question updated successfully");
