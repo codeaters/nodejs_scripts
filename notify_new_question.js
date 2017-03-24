@@ -11,8 +11,8 @@ admin.initializeApp({
 // As an admin, the app has access to read and write all data, regardless of Security Rules
 
 var quizName = "Quizzer";
-var quizId = "quizzer";
-var currentQuestion = "q3";
+var quizId = "dummy";
+var currentQuestion = "q1";
 var ttl = 60; //minutes
 
 var db = admin.database();
@@ -62,8 +62,8 @@ ref.set(currentQuestion, function(status){
         }
       };
 
-      // Send a message to devices subscribed to the provided topic.
-      admin.messaging().sendToTopic(topic, payload)
+      // Send a message to devices subscribed to the provided topic./*
+      /*admin.messaging().sendToTopic(topic, payload)
         .then(function(response) {
           // See the MessagingTopicResponse reference documentation for the
           // contents of response.
@@ -71,7 +71,7 @@ ref.set(currentQuestion, function(status){
         })
         .catch(function(error) {
           console.log("Error sending message:", error);
-        });
+        });*/
     });
   });
 });

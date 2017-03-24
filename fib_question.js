@@ -12,11 +12,11 @@ admin.initializeApp({
 
 
 var quizId = "quizzer";
-var questionId = "q3";
-var statement = "Question Sattement"; //the question statement
-var fibAnswer = "fibAnswer"; //the correct answer
+var questionId = "q5";
+var statement = "A non-Abelian group walks into a bar. The Bartender asks: Did you take the bus? The group replies, I don't __________"; //the question statement
+var fibAnswer = "commute"; //the correct answer
 var expired = false;
-var imgUri = ""; //an optional image
+var imgUri = "http://brownsharpie.courtneygibbons.org/wp-content/comics/2006-11-08-the-non-abelian-grape.jpg"; //an optional image
 
 
 
@@ -31,7 +31,7 @@ ref.set({
   statement: statement,
   fibAnswer: fibAnswer,
   expired: expired
-//  ,imgUri: imgUri
+  ,imgUri: imgUri
 }, function(status){
   console.log(status);
   console.log("Question set successfully");
